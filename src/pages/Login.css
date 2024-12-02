@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  .background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 17px;
+    margin: 16px 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 14px;
+  }
+  
+  .login-container input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .login-container input:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .login-container button {
+    width: 100%;
+    padding: 8px;
+    background-color: transparent;
+    border: 2px solid #b2b2b2;
+    border-radius: 15px;
+    color: #c2c2c2;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  
+  .login-container button:hover {
+    background-color: #b2b2b2;
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+  
+  .signup-link {
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .signup-link a {
+    color: #00aaff; /* Blue color for the link */
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 4px;
+  }
+  
+  .signup-link a:hover {
+    color: #ffffff; /* Changes to white on hover */
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .login-container {
+      width: 90%;
+    }
+  
+    .login-container h2 {
+      font-size: 20px;
+    }
+  
+    .login-container input {
+      font-size: 14px;
+    }
+  
+    .login-container button {
+      font-size: 12px;
+    }
+  
+    .signup-link {
+      font-size: 12px;
+    }
+  }
+  

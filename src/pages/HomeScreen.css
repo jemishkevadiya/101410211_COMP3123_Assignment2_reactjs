@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  .background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .dashboard-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .dashboard-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 900px;
+    color: #ffffff;
+  }
+  
+  .search-container, .create-container, .employee-list {
+    margin-bottom: 20px;
+  }
+  
+  .search-container input, .create-container input {
+    width: calc(100% - 110px);
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #ffffff;
+  }
+  
+  .search-container button, .create-container button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #00aaff;
+    border-radius: 5px;
+    color: #00aaff;
+    cursor: pointer;
+  }
+  
+  .search-container button:hover, .create-container button:hover {
+    background-color: #00aaff;
+    color: #ffffff;
+  }
+  
+  .employee-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  }
+  
+  .employee-card button {
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 2px solid #ff4d4d;
+    border-radius: 5px;
+    color: #ff4d4d;
+    cursor: pointer;
+  }
+  
+  .employee-card button:hover {
+    background-color: #ff4d4d;
+    color: #ffffff;
+  }
+  
