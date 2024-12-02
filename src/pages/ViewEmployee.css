@@ -1,14 +1,13 @@
-/* General page styling */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     color: white;
     overflow: hidden;
-  }
-  
-  /* Styling for the background video */
-  .background-video {
+}
+
+.background-video {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,40 +15,36 @@ body, html {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-  }
-  
-  /* Styling for the main container */
-  .view-employee-page {
+}
+
+.view-employee-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-  }
-  
-  /* Card container */
-  .card-ViewEmp-container {
+}
+
+.card-ViewEmp-container {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     width: 350px;
-  }
-  
-  /* Card content */
-  .card-ViewEmp-content h3 {
+}
+
+.card-ViewEmp-content h3 {
     font-size: 45px;
     margin-bottom: 25px;
-  }
-  
-  .card-ViewEmp-content p {
+}
+
+.card-ViewEmp-content p {
     margin: 5px 0;
     font-size: 25px;
     margin-bottom: 10px;
-  }
-  
-  /* Back button styling */
-  .back-button {
+}
+
+.back-button {
     margin-top: 40px;
     padding: 10px 20px;
     background-color: #28a745;
@@ -59,16 +54,14 @@ body, html {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-  }
-  
-  .back-button:hover {
+}
+
+.back-button:hover {
     background-color: #1e7e34;
-  }
-  
-  /* Loading state styling */
-  .loading {
+}
+
+.loading {
     font-size: 18px;
     font-weight: bold;
     color: white;
-  }
-  
+}

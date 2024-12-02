@@ -6,6 +6,7 @@ import HomeScreen from './pages/HomeScreen';
 import AddEmployee from './pages/AddEmployee';
 import ViewEmployee from './pages/ViewEmployee';
 import EditEmployee from './pages/EditEmployee';
+import EmployeeSearch from './pages/EmployeeSearch';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/add-employee" element={<AddEmployee />} />
           <Route path="/view-employee/:id" element={<ViewEmployee />} />
           <Route path="/edit-employee/:id" element={<EditEmployee />} />
+          <Route path="/search-employees" element={<EmployeeSearch />} />
         </Routes>
       </div>
     </Router>

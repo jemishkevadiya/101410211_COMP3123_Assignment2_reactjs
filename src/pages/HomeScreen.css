@@ -1,14 +1,12 @@
-/* General styling */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
     overflow: hidden;
-  }
-  
-  /* Video Background */
-  .background-video {
+}
+
+.background-video {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,38 +14,99 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-  }
-  
-  /* Overlay */
-  .overlay {
+}
+
+.overlay {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     position: relative;
     padding: 20px;
     height: 100vh;
     overflow-y: auto;
-  }
-  
-  /* Title */
-  .title {
+}
+
+.title {
     text-align: center;
     font-size: 36px;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #28a745;
-  }
-  
-  /* Card Deck */
-  .card-deck {
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 60%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px 0 0 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-input:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.search-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.back-to-home-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home-button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #6c757d;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-home-button:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+.card-deck {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
     padding: 10px;
-  }
-  
-  /* Employee Card */
-  .card {
+}
+
+.card {
     background: rgba(30, 30, 30, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
@@ -60,40 +119,38 @@ body {
     align-items: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card:hover {
+}
+
+.card:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-  }
-  
-  /* Card Content */
-  .card-content {
+}
+
+.card-content {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-  }
-  
-  .card-content h3 {
+}
+
+.card-content h3 {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 10px;
     color: #dcdcdc;
-  }
-  
-  .card-content p {
+}
+
+.card-content p {
     font-size: 14px;
     color: #a6a6a6;
-  }
-  
-  /* Card Actions */
-  .card-actions {
+}
+
+.card-actions {
     margin-top: 10px;
-  }
-  
-  .action-button {
+}
+
+.action-button {
     padding: 8px 12px;
     margin: 5px 5px;
     border: none;
@@ -101,42 +158,41 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-  }
-  
-  .action-button.view {
+}
+
+.action-button.view {
     background-color: #007bff;
     color: #ffffff;
-  }
-  
-  .action-button.view:hover {
+}
+
+.action-button.view:hover {
     background-color: #0056b3;
-  }
-  
-  .action-button.edit {
+}
+
+.action-button.edit {
     background-color: #dc3545;
     color: #ffffff;
-  }
-  
-  .action-button.edit:hover {
+}
+
+.action-button.edit:hover {
     background-color: #b02a37;
-  }
-  
-  .action-button.delete {
-    background-color:  #28a745;
+}
+
+.action-button.delete {
+    background-color: #28a745;
     color: #ffffff;
-  }
-  
-  .action-button.delete:hover {
-    background-color:  #1e7e34;
-  }
-  
-  /* Add Employee Button */
-  .add-employee-container {
+}
+
+.action-button.delete:hover {
+    background-color: #1e7e34;
+}
+
+.add-employee-container {
     text-align: center;
     margin-top: 30px;
-  }
-  
-  .add-employee-button {
+}
+
+.add-employee-button {
     padding: 12px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -144,11 +200,17 @@ body {
     background-color: #28a745;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-  }
-  
-  .add-employee-button:hover {
+}
+
+.add-employee-button:hover {
     background-color: #1e7e34;
-  }
-  
+    transform: scale(1.05);
+}
+
+.no-employees {
+    text-align: center;
+    font-size: 18px;
+    color: #ffcc00;
+    margin-top: 20px;
+    font-weight: bold;
+}

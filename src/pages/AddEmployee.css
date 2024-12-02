@@ -1,14 +1,12 @@
-/* General Styling */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
     overflow: hidden;
-  }
-  
-  /* Video Background */
-  .background-video {
+}
+
+.background-video {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,10 +14,9 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-  }
-  
-  /* Overlay */
-  .overlay {
+}
+
+.overlay {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(6px);
     position: relative;
@@ -29,28 +26,26 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
-  
-  /* Title */
-  h1 {
-    margin-bottom: 30px; /* Increased space between title and inputs */
+}
+
+h1 {
+    margin-bottom: 30px;
     font-size: 32px;
     font-weight: bold;
     color: #28a745;
-  }
-  
-  /* Form Styling */
-  .add-employee-form {
+}
+
+.add-employee-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px; /* Space between inputs */
+    gap: 25px;
     width: 100%;
     max-width: 400px;
     margin-top: 40px;
-  }
-  
-  .add-employee-form input {
+}
+
+.add-employee-form input {
     width: 100%;
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -58,30 +53,28 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff;
     font-size: 14px;
-  }
-  
-  .add-employee-form input::placeholder {
+}
+
+.add-employee-form input::placeholder {
     color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .add-employee-form input:focus {
+}
+
+.add-employee-form input:focus {
     outline: none;
     background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  /* Buttons Container */
-  .buttons-container {
+}
+
+.buttons-container {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Reduced gap between buttons */
+    gap: 15px;
     width: 100%;
-    margin-top: 30px; /* Increased space between form and buttons */
-  }
-  
-  /* Button Styling */
-  .add-employee-form button,
-  .back-button {
-    flex: 1; /* Make both buttons the same size */
+    margin-top: 30px;
+}
+
+.add-employee-form button,
+.back-button {
+    flex: 1;
     padding: 12px 20px;
     font-size: 16px;
     color: #ffffff;
@@ -91,10 +84,9 @@ body {
     cursor: pointer;
     transition: background-color 0.2s ease;
     text-align: center;
-  }
-  
-  .add-employee-form button:hover,
-  .back-button:hover {
+}
+
+.add-employee-form button:hover,
+.back-button:hover {
     background-color: #1e7e34;
-  }
-  
+}

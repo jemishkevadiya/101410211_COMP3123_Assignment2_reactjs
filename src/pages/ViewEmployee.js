@@ -4,7 +4,7 @@ import axios from 'axios';
 import './ViewEmployee.css';
 
 const ViewEmployee = () => {
-  const { id } = useParams(); // Get employee ID from URL
+  const { id } = useParams();
   const navigate = useNavigate();
   const [employee, setEmployee] = useState(null);
 

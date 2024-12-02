@@ -5,6 +5,7 @@ import './HomeScreen.css';
 
 const HomeScreen = () => {
   const [employees, setEmployees] = useState([]);
+  const [query, setQuery] = useState(''); 
   const navigate = useNavigate();
 
   const fetchEmployees = useCallback(async () => {
@@ -25,6 +26,18 @@ const HomeScreen = () => {
   useEffect(() => {
     fetchEmployees();
   }, [fetchEmployees]);
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(`http://localhost:7777/api/emp/employees/search?query=${query}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
+      setEmployees(response.data);
+    } catch (error) {
+      console.error('Error searching employees:', error);
+      alert('Failed to fetch search results.');
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -56,22 +69,40 @@ const HomeScreen = () => {
         <source src="/assets/bg-video.mp4" type="video/mp4" />
       </video>
       <div className="overlay">
-        <h1 className="title">Employee Cards</h1>
+        <h1 className="title">Employee Management</h1>
+
+        {/* Search Bar */}
+        <div className="search-bar-container">
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search by name, position, or department..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button className="search-button" onClick={handleSearch}>Search</button>
+        </div>
+
+        {/* Employee Cards */}
         <div className="card-deck">
           {employees.map((employee) => (
             <div key={employee._id} className="card">
               <div className="card-content">
                 <h3>{employee.first_name} {employee.last_name}</h3>
                 <p><strong>Email:</strong> {employee.email}</p>
+                <p><strong>Position:</strong> {employee.position}</p>
+                <p><strong>Department:</strong> {employee.department}</p>
                 <div className="card-actions">
-                  <button className="action-button" onClick={() => handleView(employee._id)}>View</button>
-                  <button className="action-button" onClick={() => handleEdit(employee._id)}>Edit</button>
+                  <button className="action-button view" onClick={() => handleView(employee._id)}>View</button>
+                  <button className="action-button edit" onClick={() => handleEdit(employee._id)}>Edit</button>
                   <button className="action-button delete" onClick={() => handleDelete(employee._id)}>Delete</button>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Add Employee Button */}
         <div className="add-employee-container">
           <button onClick={handleAddEmployee} className="add-employee-button">Add Employee</button>
         </div>
