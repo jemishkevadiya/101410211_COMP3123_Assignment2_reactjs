@@ -1,106 +1,79 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import './HomeScreen.css';
 
 const HomeScreen = () => {
   const [employees, setEmployees] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [newEmployee, setNewEmployee] = useState({ name: '', position: '', department: '' });
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchEmployees();
-  }, []);
-
-  const fetchEmployees = async () => {
+  const fetchEmployees = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:7777/api/emp/employees');
+      const response = await axios.get('http://localhost:7777/api/emp/employees', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
       setEmployees(response.data);
     } catch (error) {
       console.error('Error fetching employees:', error);
+      if (error.response?.status === 401) {
+        alert('Session expired. Please log in again.');
+        navigate('/');
+      }
     }
-  };
+  }, [navigate]);
 
-  const handleCreateEmployee = async () => {
-    try {
-      await axios.post('http://localhost:7777/api/emp/employees', newEmployee);
-      fetchEmployees();
-      setNewEmployee({ name: '', position: '', department: '' });
-    } catch (error) {
-      console.error('Error creating employee:', error);
-    }
-  };
+  useEffect(() => {
+    fetchEmployees();
+  }, [fetchEmployees]);
 
-  // Handle employee deletion
-  const handleDeleteEmployee = async (id) => {
+  const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:7777/api/emp/employees/${id}`);
+      await axios.delete(`http://localhost:7777/api/emp/employees/${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
       fetchEmployees();
     } catch (error) {
       console.error('Error deleting employee:', error);
+      alert('Failed to delete employee.');
     }
   };
 
-  // Handle search
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get(`http://localhost:7777/api/emp/employees/search?query=${searchTerm}`);
-      setEmployees(response.data);
-    } catch (error) {
-      console.error('Error searching employees:', error);
-    }
+  const handleEdit = (id) => {
+    navigate(`/edit-employee/${id}`);
+  };
+
+  const handleView = (id) => {
+    navigate(`/view-employee/${id}`);
+  };
+
+  const handleAddEmployee = () => {
+    navigate('/add-employee');
   };
 
   return (
-    <div className="dashboard-page">
+    <div className="home-screen">
       <video autoPlay loop muted className="background-video">
         <source src="/assets/bg-video.mp4" type="video/mp4" />
       </video>
-      <div className="dashboard-container">
-        <h1>Employee Dashboard</h1>
-
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search employees..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </div>
-
-        <div className="create-container">
-          <h3>Create Employee</h3>
-          <input
-            type="text"
-            placeholder="Name"
-            value={newEmployee.name}
-            onChange={(e) => setNewEmployee({ ...newEmployee, name: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Position"
-            value={newEmployee.position}
-            onChange={(e) => setNewEmployee({ ...newEmployee, position: e.target.value })}
-          />
-          <input
-            type="text"
-            placeholder="Department"
-            value={newEmployee.department}
-            onChange={(e) => setNewEmployee({ ...newEmployee, department: e.target.value })}
-          />
-          <button onClick={handleCreateEmployee}>Add Employee</button>
-        </div>
-
-        <div className="employee-list">
-          <h3>Employees</h3>
+      <div className="overlay">
+        <h1 className="title">Employee Cards</h1>
+        <div className="card-deck">
           {employees.map((employee) => (
-            <div key={employee._id} className="employee-card">
-              <p><strong>Name:</strong> {employee.name}</p>
-              <p><strong>Position:</strong> {employee.position}</p>
-              <p><strong>Department:</strong> {employee.department}</p>
-              <button onClick={() => handleDeleteEmployee(employee._id)}>Delete</button>
+            <div key={employee._id} className="card">
+              <div className="card-content">
+                <h3>{employee.first_name} {employee.last_name}</h3>
+                <p><strong>Email:</strong> {employee.email}</p>
+                <div className="card-actions">
+                  <button className="action-button" onClick={() => handleView(employee._id)}>View</button>
+                  <button className="action-button" onClick={() => handleEdit(employee._id)}>Edit</button>
+                  <button className="action-button delete" onClick={() => handleDelete(employee._id)}>Delete</button>
+                </div>
+              </div>
             </div>
           ))}
+        </div>
+        <div className="add-employee-container">
+          <button onClick={handleAddEmployee} className="add-employee-button">Add Employee</button>
         </div>
       </div>
     </div>
