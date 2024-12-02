@@ -11,7 +11,7 @@ const ViewEmployee = () => {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const response = await axios.get(`http://localhost:7777/api/emp/employees/${id}`, {
+        const response = await axios.get(`https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/emp/employees/${id}`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setEmployee(response.data);
