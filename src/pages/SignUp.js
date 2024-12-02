@@ -26,7 +26,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:7777/api/user/signup', {
+      const response = await axios.post('https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/user/signup', {
         username,
         email,
         password,

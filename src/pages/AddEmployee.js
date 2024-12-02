@@ -25,7 +25,7 @@ const AddEmployee = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:7777/api/emp/employees', employeeData, {
+      const response = await axios.post('https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/emp/employees', employeeData, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
 

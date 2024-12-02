@@ -10,7 +10,7 @@ const EmployeeSearch = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:7777/api/emp/employees/search?query=${query}`, {
+      const response = await axios.get(`https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/emp/employees/search?query=${query}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setEmployees(response.data);

@@ -19,7 +19,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:7777/api/user/login', {
+      const response = await axios.post('https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/user/login', {
         email,
         password,
       });

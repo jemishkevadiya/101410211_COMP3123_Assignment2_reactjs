@@ -10,7 +10,7 @@ const HomeScreen = () => {
 
   const fetchEmployees = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:7777/api/emp/employees', {
+      const response = await axios.get('https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/emp/employees', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setEmployees(response.data);
@@ -29,7 +29,7 @@ const HomeScreen = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:7777/api/emp/employees/search?query=${query}`, {
+      const response = await axios.get(`https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/emp/employees/search?query=${query}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setEmployees(response.data);
@@ -41,7 +41,7 @@ const HomeScreen = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:7777/api/emp/employees/${id}`, {
+      await axios.delete(`https://101410211-comp-3123-assignment2-nodejs.vercel.app/api/emp/employees/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       fetchEmployees();
